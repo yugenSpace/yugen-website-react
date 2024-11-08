@@ -1,6 +1,50 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { Menu } from 'lucide-react';
+import { motion, useScroll, useTransform} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+// Parallax Background Component
+const ParallaxBackground = () => {
+  const { scrollY } = useScroll();
+  
+  const y = useTransform(
+    scrollY,
+    [0, 1000], // Adjust these values based on your scroll range
+    [0, 200]   // Adjust these values for parallax intensity
+  );
+
+  const opacity = useTransform(
+    scrollY,
+    [0, 600],  // Scroll range for fade effect
+    [1, 0.3]   // Opacity range (from fully visible to 30%)
+  );
+
+  const scale = useTransform(
+    scrollY,
+    [0, 1000],
+    [1, 1.1]   // Slight zoom effect while scrolling
+  );
+
+  return (
+    <motion.div 
+      className="absolute inset-0 w-full h-full"
+      style={{ opacity }}
+    >
+      <motion.img 
+        src="public/images/img_earth_backdrop.png"  
+        alt="Earth"
+        className="absolute right-0 h-full w-auto object-contain origin-center"
+        style={{ 
+          y,
+          scale,
+          originX: '75%',  // Adjust the origin point of the transform
+          originY: '50%'
+        }}
+      />
+    </motion.div>
+  );
+};
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +69,26 @@ const App = () => {
       className: "text-white font-bold text-sm tracking-wide hover:text-gray-200 transition-colors cursor-pointer"
     };
 
+    // Fade In Animation Component
+      const FadeInWhenVisible = ({ children }) => {
+        const [ref, inView] = useInView({
+          triggerOnce: true,
+          threshold: 0.1
+        });
 
+        return (
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6 }}
+          >
+            {children}
+          </motion.div>
+        );
+      };
+
+  
 
   return (
     <div className="min-h-screen bg-black">
@@ -191,6 +254,7 @@ const App = () => {
            
 
             {/* First Feature ************************************************************/}
+            <FadeInWhenVisible> 
             <div className=" max-w-full mx-auto   grid md:grid-cols-2 gap-12  items-center ">
               <img
                 src="public/images/img_feature_1.png"
@@ -227,6 +291,7 @@ const App = () => {
               </div>
             </div>
 
+
             {/* Second Feature ************************************************************/}
             <div className="max-w-5full  mx-auto  grid md:grid-cols-2 gap-12 items-center mt-24">
               <div className="space-y-6 md:order-1">
@@ -244,6 +309,7 @@ const App = () => {
                 className="rounded-xs w-full shadow-xs md:order-2"
               />
             </div>
+            </FadeInWhenVisible>
           </div>
         </section>
 
