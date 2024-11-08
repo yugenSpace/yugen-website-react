@@ -240,7 +240,7 @@ const App = () => {
             </div>
           </div>
 
-          {/* Bottom Text *************************************************************/}
+          {/* Bottom Text ************************************************************/}
           <div className="absolute bottom-8 left-0 right-0 text-center">
             <p className="text-white text-lg tracking-wide font-semibold">
               Our proprietary sensors in space bring you the power of hyperspectral imaging
