@@ -257,7 +257,7 @@ const App = () => {
             <FadeInWhenVisible> 
             <div className=" max-w-full mx-auto   grid md:grid-cols-2 gap-12  items-center ">
               <img
-                src="public/images/img_feature_1.png"
+                src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
                 alt="Soil Analysis"
                 className="rounded-xs  h-3/4 w-3/4  shadow-xs"
               />
@@ -304,7 +304,7 @@ const App = () => {
               </div>
 
               <img
-                src="public/images/img_feature_2.png"
+                src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
                 alt="Analysis Platform"
                 className="rounded-xs w-full shadow-xs md:order-2"
               />
