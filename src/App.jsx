@@ -95,7 +95,7 @@ const App = () => {
       {/* Header ************************************************************/}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center md:px-24 py-4 bg-black-900/80 backdrop-blur-sm">
         <img 
-          src="/public/images/img_header_logo.png" 
+          src={`${import.meta.env.BASE_URL}images/img_header_logo.png`}
           alt="Yugen Space Logo" 
           className="h-12 w-auto object-contain"
         />
@@ -172,7 +172,7 @@ const App = () => {
           {/* Background Earth Image - Now covers full section */}
           <div className="absolute inset-0 w-full h-full">
             <img 
-              src="public/images/img_earth_backdrop.png"  
+              src={`${import.meta.env.BASE_URL}images/img_earth_backdrop.png`}
               alt="Earth"
               className="absolute right-0 h-full w-auto object-contain"
             />
@@ -207,15 +207,15 @@ const App = () => {
                   {/* Image Array */}
                   {[
                     {
-                      src: "/public/images/img_stack_1.png",
+                      src: `${import.meta.env.BASE_URL}images/img_stack_1.png`,
                       alt: "Satellite View"
                     },
                     {
-                      src: "/public/images/img_stack_2.png",
+                      src: `${import.meta.env.BASE_URL}images/img_stack_2.png`,
                       alt: "Agricultural Fields"
                     },
                     {
-                      src: "/public/images/img_stack_3.png",
+                      src: `${import.meta.env.BASE_URL}images/img_stack_3.png`,
                       alt: "Data Analysis"
                     }
                   ].map((image, index) => (
