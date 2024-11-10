@@ -169,22 +169,23 @@ const App = () => {
       <main>
          {/* Hero Section ************************************************************/}
          <section className="relative h-screen bg-black-900 overflow-hidden">
-          {/* Background Earth Image - Now covers full section */}
+          {/* Background Earth Image*/}
           <div className="absolute inset-0 w-full h-full">
             <img 
               src={`${import.meta.env.BASE_URL}images/img_earth_backdrop.png`}
               alt="Earth"
-              className="absolute right-0 h-full w-auto object-contain"
+              className="absolute w-[125%] h-[125%] object-cover -right-1/5 -top-1/5"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
           </div>
 
           {/* Content Wrapper ************************************************************/}
           <div className="relative container mx-auto h-full px-4">
             {/* Main Content Container */}
-            <div className="flex flex-col md:flex-row items-center h-full pt-32 md:pt-40">
+            <div className="flex flex-col md:flex-row items-center h-full pt-64 md:pt-40">
               {/* Text Content */}
-              <div className="w-full md:w-1/2 mb- md:mb-0">
-                <h1 className="text-white text-4xl md:text-5xl lg:text-5xl font-bold tracking-widest leading-tight mb-8 ">
+              <div className="w-full md:w-1/2  md:mb-0">
+                <h1 className="text-white text-lg md:text-5xl lg:text-5xl font-semibold tracking-widest leading-tight mb-8 ">
                   <div>Making</div>
                   <div>Earth Observation</div>
                   <div>Simple</div>
@@ -194,7 +195,7 @@ const App = () => {
                   href="https://docs.google.com/forms/d/1S5d45yOn69_FFaIwPf51gjLZ6ZHdawmwaZThjRo_32s/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block text-white text-sm font-bold tracking-wide hover:text-gray-200 transition-colors"
+                  className="inline-block text-white text-xs font-thin tracking-wide hover:text-gray-200 transition-colors"
                 >
                   Book Demo
                 </a>
@@ -203,7 +204,7 @@ const App = () => {
              {/* Floating Images Stack ************************************************************/}
              <div className="w-full md:w-1/2 flex justify-center md:justify-end">
                 {/* Stack Container - Controls overall stack size */}
-                <div className="relative w-full max-w-[500px] md:max-w-none md:w-[500px] lg:w-[600px] h-[600px] ">
+                <div className="relative w-full max-w-[400px] md:max-w-none md:w-[400px] lg:w-[500px] h-[500px] ">
                   {/* Image Array */}
                   {[
                     {
@@ -241,8 +242,8 @@ const App = () => {
           </div>
 
           {/* Bottom Text ************************************************************/}
-          <div className="absolute bottom-8 left-0 right-0 text-center">
-            <p className="text-white text-lg tracking-wide font-semibold">
+          <div className="absolute bottom-8 left-5 right-5 text-center">
+            <p className="text-white text-xs tracking-wide font-thin">
               Our proprietary sensors in space bring you the power of hyperspectral imaging
             </p>
           </div>
@@ -256,36 +257,42 @@ const App = () => {
             {/* First Feature ************************************************************/}
             <FadeInWhenVisible> 
             <div className=" max-w-full mx-auto   grid md:grid-cols-2 gap-12  items-center ">
+            <div className="flex justify-center items-center md:block">
               <img
                 src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
                 alt="Soil Analysis"
                 className="rounded-xs  h-3/4 w-3/4  shadow-xs"
               />
+              </div>
               
-              <div className="space-y-6">
-                <h3 className="text-xl font-bold tracking-wider">
+              <div className="space-y-4">
+                <h3 className="text-lg  font-medium tracking-wider text-center md:text-left ">
                   Precise soil nutrient and mineral maps
                 </h3>
-                <ul className="font-thin space-y-4 text-md tracking-wide">
-                  <li className="flex items-center ">
+                <ul className="font-thin space-y-4 text-md tracking-wide md:justify-start">
+                  <li className="flex items-center justify-center md:justify-start ">
                     <span className="text-blue-gray-100 "></span>
-                    <span>Predict crop yields</span>
+                    <span classname="text-center md:text-left">Predict crop yields</span>
                   </li>
-                  <li className="flex items-center ">
+                  <li className="flex items-center justify-center md:justify-start ">
                     <span className="text-blue-gray-100 "></span>
-                    <span>Measure impact of your products on soil health</span>
+                    <span classname="text-center md:text-left ">Measure impact of your products on </span>
                   </li>
-                  <li className="flex items-center ">
+                  <li className="flex items-center justify-center md:justify-start ">
                     <span className="text-blue-gray-100 "></span>
-                    <span>Monitor soil health regularly</span>
+                    <span classname="text-center md:text-left ">soil health </span>
                   </li>
-                  <li className="flex items-center ">
+                  <li className="flex items-center justify-center md:justify-start ">
                     <span className="text-blue-gray-100 "></span>
-                    <span>Save expenditure on fertilizers</span>
+                    <span classname="text-center md:text-left">Monitor soil health regularly</span>
                   </li>
-                  <li className="flex items-center ">
+                  <li className="flex items-center justify-center md:justify-start ">
                     <span className="text-blue-gray-100 "></span>
-                    <span>Increase crops yields</span>
+                    <span classname="text-center md:text-left">Save expenditure on fertilizers</span>
+                  </li>
+                  <li className="flex items-center justify-center md:justify-start ">
+                    <span className="text-blue-gray-100 "></span>
+                    <span classname="text-center md:text-left">Increase crops yields</span>
                   </li>
                 </ul>
               </div>
@@ -295,19 +302,21 @@ const App = () => {
             {/* Second Feature ************************************************************/}
             <div className="max-w-5full  mx-auto  grid md:grid-cols-2 gap-12 items-center mt-24">
               <div className="space-y-6 md:order-1">
-                <h3 className="text-xl font-bold tracking-wider">
+                <h3 className="text-lg  font-medium tracking-wider text-center md:text-left">
                   New age analysis platform
                 </h3>
-                <p className="text-md font-thin tracking-wide leading-relaxed">
+                <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left w-full">
                   Analyzing satellite images now will be as simple as a Google search.
                 </p>
               </div>
-
+              
+              <div className="flex justify-center items-center md:block">
               <img
                 src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
                 alt="Analysis Platform"
                 className="rounded-xs w-full shadow-xs md:order-2"
               />
+              </div>
             </div>
             </FadeInWhenVisible>
           </div>
@@ -317,13 +326,13 @@ const App = () => {
         <section name="about" className="py-24 bg-black-900 text-white">
           <div className="container mx-auto px-4">
             <div className=" mx-auto text-center">
-              <h2 className="text-lg font-bold tracking-wider mb-64">
+              <h2 className="lg:text-lg  font-medium lg:font-bold tracking-wider mb-64">
                 We do the complex satellite data processing.
                 You get the valuable insights
               </h2>
               
               <div className="space-y-8">
-                <p className="font-thin text-lg tracking-wide leading-relaxed">
+                <p className="font-thin text-sm lg:text-lg tracking-wide leading-relaxed">
                   Yugen Space is a space-tech start-up aiming to leverage the advances 
                   in space sciences to tackle global crises. Our mission on hand is to 
                   address the soil degradation crisis by precise soil monitoring, using 
@@ -331,11 +340,11 @@ const App = () => {
                   earth observation.
                 </p>
 
-                <p className="font-thin text-lg tracking-wide leading-relaxed">
+                <p className="font-thin text-sm lg:text-lg tracking-wide leading-relaxed">
                   We firmly believe in our motto:
                 </p>
 
-                <blockquote className="text-xl font-bold tracking-wider ">
+                <blockquote className="  text-xl font-bold tracking-wider ">
                   "Grounded in Earth, Elevated by Space"
                 </blockquote>
               </div>
@@ -350,7 +359,7 @@ const App = () => {
           <div className="flex flex-col items-center">
             <a 
               href="mailto:anand@yugenspace.com"
-              className="font-thin text-md text-lg tracking-wide hover:text-gray-200 transition-colors"
+              className="font-thin  text-xs lg:text-lg tracking-wide hover:text-gray-200 transition-colors"
             >
              contact: anand@yugenspace.com
             </a>
