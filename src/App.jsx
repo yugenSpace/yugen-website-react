@@ -245,79 +245,78 @@ const App = () => {
 
         </section>
 
-        {/* Features Section ************************************************************/}
+       {/* Features Section ************************************************************/}
         <section className="py-24 bg-black-900 text-white">
           <div className="container mx-auto px-4">
-          {/* Bottom Text ************************************************************/}
-          <div className="text-center mb-24"> {/* Added margin bottom for spacing */}
-            <p className="text-white text-xs tracking-wide font-thin">
-              Our proprietary sensors in space bring you the power of hyperspectral imaging
-             </p>
-             </div>
+            {/* Bottom Text ************************************************************/}
+            <div className="text-center mb-24">
+              <p className="text-white text-xs tracking-wide font-thin">
+                Our proprietary sensors in space bring you the power of hyperspectral imaging
+              </p>
+            </div>
+    
             {/* First Feature ************************************************************/}
             <FadeInWhenVisible> 
-            <div className=" max-w-full mx-auto   grid md:grid-cols-2 gap-12  items-center ">
-            <div className="flex justify-center items-center md:block">
-              <img
-                src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
-                alt="Soil Analysis"
-                className="rounded-xs  h-3/4 w-3/4  shadow-xs"
-              />
+              <div className="max-w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
+                {/* Image on left for first feature */}
+                <div className="flex justify-center items-center md:block">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
+                    alt="Soil Analysis"
+                    className="rounded-xs h-3/4 w-3/4 shadow-xs"
+                  />
+                </div>
+                
+                <div className="space-y-4">
+                  <h3 className="text-lg font-medium tracking-wider text-center md:text-left">
+                    Precise soil nutrient and mineral maps
+                  </h3>
+                  <ul className="font-thin space-y-4 text-md tracking-wide md:justify-start">
+                    <li className="flex items-center justify-center md:justify-start">
+                      <span className="text-blue-gray-100"></span>
+                      <span className="text-center md:text-left w-full">Predict crop yields</span>
+                    </li>
+                    <li className="flex items-center justify-center md:justify-start">
+                      <span className="text-blue-gray-100"></span>
+                      <span className="text-center md:text-left w-full">Measure impact of your products on soil health</span>
+                    </li>
+                    <li className="flex items-center justify-center md:justify-start">
+                      <span className="text-blue-gray-100"></span>
+                      <span className="text-center md:text-left w-full">Monitor soil health regularly</span>
+                    </li>
+                    <li className="flex items-center justify-center md:justify-start">
+                      <span className="text-blue-gray-100"></span>
+                      <span className="text-center md:text-left w-full">Save expenditure on fertilizers</span>
+                    </li>
+                    <li className="flex items-center justify-center md:justify-start">
+                      <span className="text-blue-gray-100"></span>
+                      <span className="text-center md:text-left w-full">Increase crops yields</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-lg  font-medium tracking-wider text-center md:text-left ">
-                  Precise soil nutrient and mineral maps
-                </h3>
-                <ul className="font-thin space-y-4 text-md tracking-wide md:justify-start">
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left">Predict crop yields</span>
-                  </li>
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left ">Measure impact of your products on </span>
-                  </li>
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left ">soil health </span>
-                  </li>
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left">Monitor soil health regularly</span>
-                  </li>
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left">Save expenditure on fertilizers</span>
-                  </li>
-                  <li className="flex items-center justify-center md:justify-start ">
-                    <span className="text-blue-gray-100 "></span>
-                    <span classname="text-center md:text-left">Increase crops yields</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
 
-
-            {/* Second Feature ************************************************************/}
-            <div className="max-w-5full  mx-auto  grid md:grid-cols-2 gap-12 items-center mt-24">
-              <div className="space-y-6 md:order-1">
-                <h3 className="text-lg  font-medium tracking-wider text-center md:text-left">
-                  New age analysis platform
-                </h3>
-                <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left w-full">
-                  Analyzing satellite images now will be as simple as a Google search.
-                </p>
+              {/* Second Feature ************************************************************/}
+              <div className="max-w-5full mx-auto grid md:grid-cols-2 gap-12 items-center mt-24">
+                {/* Text on left for second feature */}
+                <div className="space-y-6">
+                  <h3 className="text-lg font-medium tracking-wider text-center md:text-left">
+                    New age analysis platform
+                  </h3>
+                  <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left w-full">
+                    Analyzing satellite images now will be as simple as a Google search.
+                  </p>
+                </div>
+                
+                {/* Image on right for second feature */}
+                <div className="flex justify-center items-center md:block">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
+                    alt="Analysis Platform"
+                    className="rounded-xs w-full shadow-xs"
+                  />
+                </div>
               </div>
-              
-              <div className="flex justify-center items-center md:block">
-              <img
-                src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
-                alt="Analysis Platform"
-                className="rounded-xs w-full shadow-xs md:order-2"
-              />
-              </div>
-            </div>
             </FadeInWhenVisible>
           </div>
         </section>
