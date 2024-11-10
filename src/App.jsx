@@ -241,19 +241,19 @@ const App = () => {
             </div>
           </div>
 
-          {/* Bottom Text ************************************************************/}
-          <div className="absolute bottom-8 left-5 right-5 text-center">
-            <p className="text-white text-xs tracking-wide font-thin">
-              Our proprietary sensors in space bring you the power of hyperspectral imaging
-            </p>
-          </div>
+         
+
         </section>
 
         {/* Features Section ************************************************************/}
         <section className="py-24 bg-black-900 text-white">
           <div className="container mx-auto px-4">
-           
-
+          {/* Bottom Text ************************************************************/}
+          <div className="text-center mb-24"> {/* Added margin bottom for spacing */}
+            <p className="text-white text-xs tracking-wide font-thin">
+              Our proprietary sensors in space bring you the power of hyperspectral imaging
+             </p>
+             </div>
             {/* First Feature ************************************************************/}
             <FadeInWhenVisible> 
             <div className=" max-w-full mx-auto   grid md:grid-cols-2 gap-12  items-center ">
