@@ -263,7 +263,7 @@ const App = () => {
                   <img
                     src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
                     alt="Soil Analysis"
-                    className="rounded-xs h-3/4 w-3/4 shadow-xs"
+                    className="rounded-xs  w-2/3 aspect-[4/3] shadow-xs"
                   />
                 </div>
                 
