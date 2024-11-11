@@ -1,181 +1,87 @@
-// src/pages/Chat.jsx
-import React, { useState, useRef, useEffect } from 'react';
-import { Send } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, LayersControl } from 'react-leaflet';
 
-const Chat = () => {
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef(null);
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+// Import leaflet CSS in your component
+import 'leaflet/dist/leaflet.css';
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+// Fix for default marker icons
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
+L.Marker.prototype.options.icon = DefaultIcon;
 
-    // Add user message to chat
-    const userMessage = {
-      role: 'user',
-      content: inputMessage,
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
-    setIsLoading(true);
-
-    try {
-      // Replace this with your actual API call
-      const response = await fetch('YOUR_API_ENDPOINT', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.access_token}`,
-        },
-        body: JSON.stringify({
-          message: inputMessage,
-        }),
-      });
-
-      const data = await response.json();
-
-      // Add assistant's response to chat
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: data.response,
-      }]);
-    } catch (error) {
-      console.error('Error:', error);
-      // Add error message to chat
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again.',
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
+const WorldMap = () => {
+  const center = [20, -20];
+  const zoom = 3;
+  
+  const cities = [
+    { name: 'New York', coords: [40.7128, -74.0060] },
+    { name: 'London', coords: [51.5074, -0.1278] },
+    { name: 'Paris', coords: [48.8566, 2.3522] },
+    { name: 'Tokyo', coords: [35.6762, 139.6503] },
+  ];
 
   return (
-    <div className="flex flex-col h-screen bg-black">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-black-900/80 backdrop-blur-sm border-b border-gray-800">
-        <div className="flex items-center">
-          <img
-            src={`${import.meta.env.BASE_URL}images/img_header_logo.png`}
-            alt="Yugen Space Logo"
-            className="h-8 w-auto object-contain"
-          />
-        </div>
-        <div className="flex items-center gap-4">
-          <img
-            src={user?.picture}
-            alt={user?.name}
-            className="w-8 h-8 rounded-full"
-          />
-          <button
-            onClick={handleLogout}
-            className="text-white text-sm hover:text-gray-300 transition-colors"
-          >
-            Logout
-          </button>
-        </div>
-      </header>
-
-      {/* Chat Container */}
-      <div className="flex-1 overflow-y-auto pt-20 pb-32">
-        <div className="max-w-3xl mx-auto px-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`py-6 ${
-                message.role === 'user' ? 'bg-transparent' : 'bg-gray-900/50'
-              }`}
-            >
-              <div className="max-w-3xl mx-auto px-4 flex items-start gap-4">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0">
-                  {message.role === 'user' ? (
-                    <img
-                      src={user?.picture}
-                      alt="User"
-                      className="w-8 h-8 rounded-full"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/img_header_logo.png`}
-                        alt="Assistant"
-                        className="w-6 h-6 object-contain"
-                      />
-                    </div>
-                  )}
-                </div>
-                <div className="text-white min-h-[20px] flex-1">
-                  {message.content}
-                </div>
-              </div>
-            </div>
-          ))}
-          {isLoading && (
-            <div className="py-6 bg-gray-900/50">
-              <div className="max-w-3xl mx-auto px-4 flex items-start gap-4">
-                <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/img_header_logo.png`}
-                    alt="Assistant"
-                    className="w-6 h-6 object-contain"
-                  />
-                </div>
-                <div className="text-white">Thinking...</div>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-      </div>
-
-      {/* Input Form */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black-900/80 backdrop-blur-sm border-t border-gray-800">
-        <form 
-          onSubmit={handleSubmit}
-          className="max-w-3xl mx-auto p-4"
-        >
-          <div className="relative">
-            <input
-              type="text"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Type your message..."
-              className="w-full bg-gray-900 text-white rounded-lg pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              disabled={isLoading}
+    <div className="w-full h-screen relative">      
+      <MapContainer 
+        center={center} 
+        zoom={zoom} 
+        className="w-full h-full"
+        zoomControl={false}
+      >
+        <LayersControl position="topright">
+          {/* Base street map layer */}
+          <LayersControl.BaseLayer checked name="Street Map">
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <button
-              type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white disabled:hover:text-gray-400 transition-colors"
-              disabled={isLoading || !inputMessage.trim()}
-            >
-              <Send size={20} />
-            </button>
-          </div>
-        </form>
-      </div>
+          </LayersControl.BaseLayer>
+
+          {/* Satellite layer */}
+          <LayersControl.BaseLayer name="Satellite">
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
+              maxZoom={19}
+            />
+          </LayersControl.BaseLayer>
+
+          {/* Terrain layer */}
+          <LayersControl.BaseLayer name="Terrain">
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}"
+              attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
+              maxZoom={13}
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
+
+        <ZoomControl position="bottomright" />
+
+        {cities.map((city) => (
+          <Marker 
+            key={city.name} 
+            position={city.coords}
+          >
+            <Popup>
+              <div className="text-sm font-medium">{city.name}</div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
     </div>
   );
 };
 
-export default Chat;
+export default WorldMap;
