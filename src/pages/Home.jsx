@@ -234,10 +234,10 @@ const Home = () => {
                     className="rounded-xs w-full  shadow-xs"
                   />
              <div className="space-y-6">
-                  <h3 className="text-lg font-medium tracking-wider text-center md:text-left pl-20">
+                  <h3 className="text-lg font-medium tracking-wider text-center md:text-left md:pl-20">
                     New age analysis platform
                   </h3>
-                  <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left w-full  pl-20">
+                  <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left md:pl-20 w-full">
                     Analyzing satellite images now will be as simple 
                     <br /> as a Google search.
                   </p>
