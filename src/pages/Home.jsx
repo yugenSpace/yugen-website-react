@@ -226,7 +226,7 @@ const Home = () => {
 
             {/* First Feature */}
             <FadeInWhenVisible>
-              <div className="max-w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
+              <div className="max-w-full mx-auto grid md:grid-cols-2 gap-96 items-center">
                 {/* Image on left for first feature */}
                 <img
                     src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
@@ -245,7 +245,7 @@ const Home = () => {
               </div>
 
               {/* Second Feature */}
-              <div className="max-w-5full mx-auto grid md:grid-cols-2 gap-12 items-center mt-24">
+              <div className="max-w-5full mx-auto grid md:grid-cols-2 gap-96 items-center mt-24">
                 {/* Text on left for second feature */}
               
 
@@ -293,7 +293,7 @@ const Home = () => {
                   <img
                     src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
                     alt="Soil Analysis"
-                    className="rounded-xs  w-2/3 aspect-[4/3] shadow-xs"
+                    className="rounded-xs w-full aspect-[4/3] shadow-xs"
                   />
                 </div>
                 </div>
