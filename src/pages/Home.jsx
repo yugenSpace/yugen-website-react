@@ -4,15 +4,12 @@ import { Link } from "react-scroll";
 import { Menu } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import LoginButton from '../components/Auth/LoginButton';
-import { useAuth } from '../contexts/AuthContext';
 
 /**
  * Home component: main entry point for the application
  * Features hero section, features section, about section, and footer
  */
 const Home = () => {
-  const { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Navigation configuration for both desktop and mobile menus
@@ -170,20 +167,16 @@ const Home = () => {
                   <div>Simple</div>
                 </h1>
 
-                {/* <a
+                <a
                   href="https://docs.google.com/forms/d/1S5d45yOn69_FFaIwPf51gjLZ6ZHdawmwaZThjRo_32s/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-block text-white text-xs font-thin tracking-wide hover:text-gray-200 transition-colors"
                 >
                   Book Demo
-                </a> */}
+                </a>
 
-                <LoginButton 
-                    className="inline-block text-white text-xs font-thin tracking-wide hover:text-gray-200 transition-colors"
-                >
-                    Try it out
-                </LoginButton>
+              
               </div>
 
               {/* Floating Images Stack
@@ -245,8 +238,8 @@ const Home = () => {
                     New age analysis platform
                   </h3>
                   <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left w-full">
-                    Analyzing satellite images now will be as  
-                    <br />simple as a Google search.
+                    Analyzing satellite images now will be as simple 
+                    <br /> as a Google search.
                   </p>
                 </div>
               </div>
