@@ -226,7 +226,7 @@ const Home = () => {
 
             {/* First Feature */}
             <FadeInWhenVisible>
-              <div className="max-w-full mx-auto grid md:grid-cols-2 gap-60 items-center">
+              <div className="max-w-full mx-auto grid md:grid-cols-2 gap-8 md:gap-60 items-center">
                 {/* Image on left for first feature */}
                 <img
                     src={`${import.meta.env.BASE_URL}images/img_feature_2.png`}
@@ -245,11 +245,18 @@ const Home = () => {
               </div>
 
               {/* Second Feature */}
-              <div className="max-w-5full mx-auto grid md:grid-cols-2 gap-96 items-center mt-24">
-                {/* Text on left for second feature */}
-              
+              <div className="max-w-5full mx-auto grid md:grid-cols-2 gap-8 md:gap-96 items-center mt-24">
+                {/* Image for second feature - appears first in mobile, moves to right in desktop */}
+                <div className="flex justify-center items-center md:block md:order-last">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
+                    alt="Soil Analysis"
+                    className="rounded-xs w-full aspect-[4/3] shadow-xs"
+                  />
+                </div>
 
-                <div className="space-y-4">
+                {/* Text content - appears second in mobile, moves to left in desktop */}
+                <div className="space-y-4 md:order-first">
                   <h3 className="text-lg font-medium tracking-wider text-center md:text-left">
                     Precise soil nutrient and mineral maps
                   </h3>
@@ -286,17 +293,6 @@ const Home = () => {
                     </li>
                   </ul>
                 </div>
-
-                {/* Image on right for second feature */}
-                <div className="flex justify-center items-center md:block">
-                   <div className="flex justify-center items-center md:block">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/img_feature_1.png`}
-                    alt="Soil Analysis"
-                    className="rounded-xs w-full aspect-[4/3] shadow-xs"
-                  />
-                </div>
-                </div>
               </div>
             </FadeInWhenVisible>
           </div>
@@ -309,12 +305,12 @@ const Home = () => {
         <section name="about" className="py-24 bg-black-900 text-white">
           <div className="container mx-auto px-4">
             <div className=" mx-auto text-center">
-              <h2 className="lg:text-lg  font-medium lg:font-bold tracking-wider mb-64">
+              <h2 className="lg:text-lg font-medium lg:font-bold tracking-wider mb-8 md:mb-64">
                Our proprietary sensors in space bring you the power of
                 hyperspectral imaging
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-4 md:space-y-8">
                 <p className="font-thin text-sm lg:text-lg tracking-wide leading-relaxed">
                   Yugen Space is a space-tech start-up aiming to leverage the
                   advances in space sciences to tackle global crises. Our
