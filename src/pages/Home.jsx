@@ -238,8 +238,7 @@ const Home = () => {
                     New age analysis platform
                   </h3>
                   <p className="text-md font-thin tracking-wide leading-relaxed text-center md:text-left md:pl-20 w-full">
-                    Analyzing satellite images now will be as simple 
-                    <br /> as a Google search.
+                    Analyzing satellite images now will be as simple as a Google search.
                   </p>
                 </div>
               </div>
