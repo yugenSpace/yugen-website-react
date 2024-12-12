@@ -1,8 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Yugen Space
+At Yugen Space, we are making Earth Observation simple. Our objective is to bring Space closer to Earth through our breakthrough platform and satellite data, tackling the most challenging issues on our planet. The first step in our mission focuses on soil—addressing the soil degradation crisis through precise monitoring.
+We firmly believe in our motto: ‘Grounded in Earth, Elevated by Space.’

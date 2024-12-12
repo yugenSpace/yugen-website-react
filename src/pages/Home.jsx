@@ -311,12 +311,7 @@ const Home = () => {
 
               <div className="space-y-4 md:space-y-8">
                 <p className="font-thin text-sm lg:text-lg tracking-wide leading-relaxed">
-                  Yugen Space is a space-tech start-up aiming to leverage the
-                  advances in space sciences to tackle global crises. Our
-                  mission on hand is to address the soil degradation crisis by
-                  precise soil monitoring, using advanced satellites and
-                  developing smart analysis systems to democratize earth
-                  observation.
+                At Yugen Space, we are making Earth Observation simple. Our objective is to bring Space closer to Earth through our breakthrough platform and satellite data, tackling the most challenging issues on our planet. The first step in our mission focuses on soil—addressing the soil degradation crisis through precise monitoring.
                 </p>
 
                 <p className="font-thin text-sm lg:text-lg tracking-wide leading-relaxed">
